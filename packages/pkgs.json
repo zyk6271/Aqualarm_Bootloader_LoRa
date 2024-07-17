@@ -1,0 +1,22 @@
+[
+ {
+  "path": "/packages/system/syswatch", 
+  "ver": "latest", 
+  "name": "SYSWATCH"
+ }, 
+ {
+  "path": "/packages/system/qboot", 
+  "ver": "latest", 
+  "name": "QBOOT"
+ }, 
+ {
+  "path": "/packages/misc/zlib", 
+  "ver": "latest", 
+  "name": "ZLIB"
+ }, 
+ {
+  "path": "/packages/misc/crclib", 
+  "ver": "latest", 
+  "name": "CRCLIB"
+ }
+]
