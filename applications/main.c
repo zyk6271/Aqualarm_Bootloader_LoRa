@@ -14,10 +14,12 @@
 #define DBG_LVL DBG_LOG
 #include <rtdbg.h>
 
+#define firmware_version        "BL Ver:V1.0.0\r\n"
 int main(void)
 {
     syswatch_init();
     uart_init();
+    uart_send(firmware_version);
     flash_Init();
     qbt_startup();
     while (1)

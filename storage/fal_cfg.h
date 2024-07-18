@@ -46,8 +46,7 @@ extern struct fal_flash_dev nor_flash0;
 #define FAL_PART_TABLE                                                               \
 {                                                                                    \
     {FAL_PART_MAGIC_WORD,  "boot", "onchip_flash", 0*1024,48*1024, 0},           \
-    {FAL_PART_MAGIC_WORD,  "app", "onchip_flash", 48*1024,207*1024, 0},           \
-    {FAL_PART_MAGIC_WORD,  "config", "onchip_flash", 255*1024,1*1024, 0},           \
+    {FAL_PART_MAGIC_WORD,  "app", "onchip_flash", 48*1024,208*1024, 0},           \
     {FAL_PART_MAGIC_WORD,  "easyflash", NOR_FLASH_DEV_NAME,  0, 1024*1024, 0},     \
     {FAL_PART_MAGIC_WORD,  "factory", NOR_FLASH_DEV_NAME, 1024*1024, 512*1024, 0}, \
     {FAL_PART_MAGIC_WORD,  "download", NOR_FLASH_DEV_NAME, 1536*1024, 512*1024, 0}, \
