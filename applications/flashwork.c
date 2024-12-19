@@ -43,7 +43,9 @@ int flash_Init(void)
     LOG_I("Storage Init Success\r\n");
     return RT_EOK;
 }
-#else
+#endif
+
+#ifdef ALLINONE
 void pd_pin_pullup(void)//pull up pd chip cs pin
 {
     rt_pin_mode(1,0);
@@ -74,6 +76,29 @@ int flash_Init(void)
         return RT_ERROR;
     };
     uart_send("Storage Init Success\r\n");
+    LOG_I("Storage Init Success\r\n");
+    return RT_EOK;
+}
+#endif
+
+#ifdef MAINUNIT
+int flash_Init(void)
+{
+    rt_err_t status;
+    extern rt_spi_flash_device_t rt_sfud_flash_probe(const char *spi_flash_dev_name, const char *spi_dev_name);
+    rt_hw_spi_device_attach("spi1", "spi10", GPIOB, GPIO_PIN_6);
+    w25q16 = rt_sfud_flash_probe("norflash0", "spi10");
+    if (RT_NULL == w25q16)
+    {
+        LOG_E("sfud fail\r\n");
+        return RT_ERROR;
+    };
+    status = fal_init();
+    if (status == 0)
+    {
+        LOG_E("fal_init fail\r\n");
+        return RT_ERROR;
+    };
     LOG_I("Storage Init Success\r\n");
     return RT_EOK;
 }

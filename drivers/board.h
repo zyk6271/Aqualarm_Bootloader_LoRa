@@ -65,14 +65,23 @@ extern "C"
  *                 such as     #define BSP_UART1_RX_USING_DMA
  *
  */
+#ifdef GATEWAY
+#define BSP_USING_UART2
+#define BSP_UART2_TX_PIN       "PA2"
+#define BSP_UART2_RX_PIN       "PA3"
+#endif
+
+#ifdef ALLINONE
 #define BSP_USING_UART1
 #define BSP_UART1_TX_PIN       "PB6"
 #define BSP_UART1_RX_PIN       "PB7"
+#endif
 
-//#define BSP_USING_UART2
-//#define BSP_UART2_TX_PIN       "PA2"
-//#define BSP_UART2_RX_PIN       "PA3"
-
+#ifdef MAINUNIT
+#define BSP_USING_UART2
+#define BSP_UART2_TX_PIN       "PA2"
+#define BSP_UART2_RX_PIN       "PA3"
+#endif
 /*-------------------------- UART CONFIG END --------------------------*/
 
 /*-------------------------- I2C CONFIG BEGIN --------------------------*/
